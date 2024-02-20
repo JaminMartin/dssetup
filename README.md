@@ -2,7 +2,10 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Python installation](#python-installation)
+- [Python Installation](#python-installation)
+    - [Post Installation](#post-installation)
+    - [Jupyter Notebooks](#jupyter-notebooks)
+    - [A note on Apple Silicon]
 - [Git installation](#git-installation)
 - [Visual studio code installation](#visual-studio-code)
 - [Useful tools](#useful-tools)
@@ -117,6 +120,19 @@ For VScode users, once the correct [extensions](#visual-studio-code) are install
 </div>
 
 
+## A note on Apple Silicon 
+
+As Apple Silicon Macs (M1, M2, etc) use ARM-based SOC, many `Python` packages can out of the box run as efficiently as they could, or if they are only built for x86 (Intel, AMD) architecture might not work at all. This is the secondary bonus of using `Miniforge`. The conda-forge channel provides prebuilt binaries for Apple-AArch64, allowing for a seamless migration between Windows, Mac, and Linux (though pip does have good Apple Silicon support now, too).
+
+In some cases, some libraries can actually take advantage of the memory bandwidth and GPU having direct access to system memory (think self hosting of LLMs), but for our scientific use case: Numpy. Numpy, by default, is built against OpenBLAS, an open linear algebra library. This is great for versatility between operating systems but not so much for taking advantage of bespoke hardware. We can improve the performance of Numpy on Apple Silicon by utilising Apples Accelerate library (a proprietary BLAS library that takes advantage of the achetecture of the chip).
+Thankfully, this is relatively trivial to do. Once we have created our `Python` virtual environment, we can simply install Numpy with the following:
+```
+conda install numpy "libblas=*=*accelerate"
+```
+Thats all! For me, this gave me a ~x10 performance boost for matrix decomposition. Well worth it for a few extra characters! **Note**: A similar performance boost can be achieved for Windows and Linux users on Intel chips by building Numpy against their `MKL` BLAS libraries:
+```
+conda install numpy "libblas=*=*mkl"
+```
 
 
 # Git Installation
