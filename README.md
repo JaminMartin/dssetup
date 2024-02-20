@@ -5,9 +5,10 @@
 - [Python Installation](#python-installation)
     - [Post Installation](#post-installation)
     - [Jupyter Notebooks](#jupyter-notebooks)
-    - [A note on Apple Silicon]
+    - [A note on Apple Silicon](#a-note-on-apple-silicon)
 - [Git installation](#git-installation)
 - [Visual studio code installation](#visual-studio-code)
+    - [Extensions](#extensions)
 - [Useful tools](#useful-tools)
     - [Obsidian](#obsidian)
     - [IT-Tools](#it-tools)
