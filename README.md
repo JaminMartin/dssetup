@@ -61,6 +61,25 @@ We can then activate this environment using `conda activate 'name of your `env'`
 From here you can install your required packages and their desired version for your current project. This also allows you to create a list of your dependencies for your project if you want to replicate it on another device or share it with someone else in the form of a Python package. 
 
 A helpful guide to Conda and virtual environments can be found on this [cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf).
+
+## Installing Packages
+
+Within your chosen virtual environment, it is relatively easy to install packages to your environment with either `Conda` or `Pip`
+
+Each package will probably have a recommended way to do it (I would follow that!)
+
+For example, we can install `Matplotlib` with conda 
+
+```
+conda install matplotlib
+```
+or with pip:
+
+```
+pip install matplotlib
+```
+
+However, I have found some packages; for example, the Materials project (`pymatgen`) recommends installing `Matplotlib` and `Numpy` via `Conda` instead of through pip. 
 ## Jupyter Notebooks
 
 The following advice works for a `Jupyter Notebook`, `Jupyter Lab`, and Notebooks in `VScode`. As discussed, virtual environments simplify handling different versions of `Python` and any associated libraries. We need to take additional steps to enable virtual environments in our notebooks. There is no one way to do this; this is how I do it. 
